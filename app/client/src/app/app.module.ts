@@ -12,7 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
     AppComponent,
     SidebarComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,3 +22,4 @@ import { FooterComponent } from './components/footer/footer.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 

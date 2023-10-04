@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './landing.component';
+import { HomeComponent } from 'src/app/components/home/home.component';
 
 
 @NgModule({
   declarations: [
-    LandingComponent
+    LandingComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
