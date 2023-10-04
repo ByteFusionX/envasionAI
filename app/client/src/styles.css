@@ -2,3 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'GT Walsheim';
+    src:url('./assets/font/GT-Walsheim/GT-Walsheim-Black-Trial.woff2') format('woff2'),
+}
+
+@font-face {
+    font-family: 'GT America';
+    src: url('./assets/font/GT-America/GT-America-Compressed-Light-Trial.woff2') format('woff2');
+}
