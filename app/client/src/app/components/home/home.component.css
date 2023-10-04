@@ -1,0 +1,16 @@
+h1{
+    font-family: GT Walsheim;
+    color: #2D2322;
+    letter-spacing: -2px;
+    line-height: 90%;
+}
+
+.p-align{
+    line-height: 140%;
+    display: inline-block;
+}
+
+p{
+    font-family: GT America,;
+    letter-spacing: 1.5px;
+}
