@@ -5,18 +5,17 @@
 
 @font-face {
     font-family: 'GT Walsheim';
-    src: url('../src/assets/Fonts/GTWalsheimProBold.ttf');
-  }
-@font-face {
-    font-family: 'GT America';
-    src: url('../src/assets/Fonts/GT America Regular.ttf');
-  }
 
-h1,h2,h3,h4,h5{
-    font-family: GT Walsheim,sans-serif;
+    src:url('./assets/font/GT-Walsheim/GT-Walsheim-Black-Trial.woff2') format('woff2'),
 }
 
-p{
-    font-family: GT America,sans-serif;
-    font-weight: 400;
+@font-face {
+    font-family: 'GT America';
+    src: url('./assets/font/GT-America/GT-America-Compressed-Light-Trial.woff2') format('woff2');
+
+
+}
+
+.headFont{
+    font-family: GT Walsheim;
 }
