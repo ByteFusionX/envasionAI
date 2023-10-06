@@ -1,6 +1,5 @@
 h1{
     font-family: GT Walsheim;
-    color: #2D2322;
     letter-spacing: -2px;
     line-height: 90%;
 }
@@ -12,5 +11,26 @@ h1{
 
 p{
     font-family: GT America,;
-    letter-spacing: 1.5px;
+    line-height: 36.4px;
+    font-size: 26px;
+}
+
+span{
+    font-family: GT America,;
+}
+
+.heading{
+    font-family: Oliver;
+}
+.inner-div {
+    animation: scroll 5s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
 }
