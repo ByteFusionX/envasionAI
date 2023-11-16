@@ -13,6 +13,11 @@
     src: url('./assets/font/GT-America/GT-America-Compressed-Light-Trial.woff2') format('woff2');
 }
 
+@font-face { 
+    font-family: 'Oliver';
+    src: url('./assets/font/Oliver-Regular.woff') format('woff');
+}
+
 .headFont{
     font-family: GT Walsheim;
 }
