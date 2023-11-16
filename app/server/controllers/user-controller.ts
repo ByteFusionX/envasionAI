@@ -1,7 +1,9 @@
 
 import { Request, Response, NextFunction } from "express";
+import jwt, { JwtPayload } from "jsonwebtoken";
 const bcrypt = require('bcrypt');
 import userModel from "../models/user-model";
+
 
 export const addUser = async (req:Request,res:Response,next:NextFunction)=>{
     try {
@@ -33,4 +35,30 @@ export const addUser = async (req:Request,res:Response,next:NextFunction)=>{
     } catch (error) {
         next(error)
     }
+
+   
 }  
+
+export const verifyLogin = async (req:Request , res:Response , next:NextFunction)=>{
+    try {
+        const {email,password}=req.body
+        const user = await userModel.findOne({email:email})
+        if(user){
+            const hashPassword = await bcrypt.compare(password,user.password)
+            if(hashPassword){
+                const payload = {sub:user._id,email:email}
+                const token = jwt.sign(payload,process.env.SECRET_KEY!,  {
+                    expiresIn: "2d",
+                  })
+                  res.send({token:token,id:user._id})
+            }else{
+                res.send({incorrectPassword:true})
+            }
+        }
+        else{
+            res.send({userExistError:true})
+        }
+    } catch (error) {
+        next(error)
+    }
+}
