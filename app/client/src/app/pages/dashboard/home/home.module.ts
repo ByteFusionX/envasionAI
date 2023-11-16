@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardComponent } from './dashboard.component';
-import { SidebarComponent } from 'src/app/components/sidebar/sidebar.component';
+import { HomeRoutingModule } from './home-routing.module';
+import { HomeComponent } from './home.component';
 import { NgIconsModule } from '@ng-icons/core';
 import {
   heroHome,
@@ -14,18 +13,19 @@ import {
   heroCodeBracket,
   heroCog6Tooth,
   heroBolt,
-  heroBars3
+  heroBars3,
+  heroArrowSmallRight
 } from '@ng-icons/heroicons/outline';
+
 
 
 @NgModule({
   declarations: [
-    DashboardComponent,
-    SidebarComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule,
+    HomeRoutingModule,
     NgIconsModule.withIcons(
       {
         heroHome,
@@ -36,8 +36,9 @@ import {
         heroCodeBracket,
         heroCog6Tooth,
         heroBolt,
-        heroBars3
+        heroBars3,
+        heroArrowSmallRight
       }),
   ]
 })
-export class DashboardModule { }
+export class HomeModule { }

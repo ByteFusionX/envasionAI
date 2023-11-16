@@ -11,7 +11,7 @@ import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
   declarations: [
     LandingComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     CommonModule,

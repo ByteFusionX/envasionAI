@@ -17,3 +17,11 @@
     font-family: 'Oliver';
     src: url('./assets/font/Oliver-Regular.woff') format('woff');
 }
+
+.headFont{
+    font-family: GT Walsheim;
+}
+
+.parFont{
+    font-family: GT America;
+}
