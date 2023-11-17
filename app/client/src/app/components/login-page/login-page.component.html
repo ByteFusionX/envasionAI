@@ -7,43 +7,75 @@
                 </h1>
                 <p class="text-left text-xl font-semibold mt-10">Happy to Announce about Envasion.Ai</p>
                 <div class="h-64"></div>
-               <div class="flex justify-center">
-                <button type="button" class="text-white bg-black font-medium rounded-full text-md px-10 py-5 me-2 mb-2" routerLink="/signup">Sign Up</button>
-               </div>
-               
+                <div class="flex justify-center">
+                    <button type="button"
+                        class="text-white bg-black font-medium rounded-full text-md px-10 py-5 me-2 mb-2"
+                        routerLink="/signup">Sign Up</button>
+                </div>
+
             </div>
-            <div 
-                class="relative overflow-hidden md:flex md:w-1/2 bg-black md:h-fit h-screen  justify-around items-center  md:py-9 py-4   md:rounded-r-[40px]" >
+            <div
+                class="relative overflow-hidden md:flex md:w-1/2 bg-black md:h-fit h-screen  justify-around items-center  md:py-9 py-4   md:rounded-r-[40px]">
                 <div>
                     <div class="mt-12 flex flex-col items-center">
                         <h1 class="headFont text-2xl xl:text-3xl font-extrabold text-white">
                             Login
                         </h1>
                         <div class="relative mx-auto max-w-xs mt-20">
-                            <input
-                                class="w-full px-6 py-3 rounded-lg font-medium bg-white border placeholder-black text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                                type="email" placeholder="Email" />
-                            <input
-                                class="w-full px-6 py-3 rounded-lg font-medium bg-white border placeholder-black text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                                type="password" placeholder="Password" />
-                            <button
-                                class="mt-8 tracking-wide font-semibold   w-full py-4 rounded-lg border border-whitebg-black text-white hover:bg-slate-950 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                                <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                                    <circle cx="8.5" cy="7" r="4" />
-                                    <path d="M20 8v6M23 11h-6" />+
-                                    
-                                </svg>
-                                <span class="ml-3">
-                                    Login
-                                </span>
-                            </button>
+                            <form [formGroup]="loginForm" (submit)="onSubmit()">
+                                <input formControlName="email"
+                                    class="w-full px-6 py-3 rounded-lg font-medium bg-white border placeholder-black text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                                    type="email" placeholder="Email" />
+                                    <div>
+                                        <div *ngIf="submit&&userExistError">
+                                            <p class="text-red-500">Incorrect Email</p>
+                                        </div>
+                                        <div *ngIf="loginForm.controls['email'].errors">
+                                            <p *ngIf="submit&&loginForm.controls['email'].hasError('required')"
+                                                class="text-red-500">Email is required</p>
+                                            <p *ngIf="loginForm.controls['email'].hasError('email')" class="text-red-500">
+                                                Invalid format</p>
+                                        </div>
+                                    </div>
+                               
+                                
+
+                                
+                                <input formControlName="password"
+                                    class="w-full px-6 py-3 rounded-lg font-medium bg-white border placeholder-black text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                                    type="password" placeholder="Password" />
+                                    <div>
+                                        <div *ngIf="submit&&incorrectPasswordError">
+                                            <p class="text-red-500">Incorrect password</p>
+                                        </div>
+                                        <div *ngIf="loginForm.controls['password'].errors">
+                                            <p *ngIf="submit&&loginForm.controls['password'].hasError('required')"
+                                                class="text-red-500">Password is required</p>
+                                            <p *ngIf="loginForm.controls['password'].hasError('pattern')" class="text-red-500">
+                                                Password should contain a capital letter,special character and a number</p>
+                                        </div>
+                                    </div>
+                               
+
+                                <button type="submit"
+                                    class="mt-8 tracking-wide font-semibold   w-full py-4 rounded-lg border border-whitebg-black text-white hover:bg-slate-950 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                                    <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                                        <circle cx="8.5" cy="7" r="4" />
+                                        <path d="M20 8v6M23 11h-6" />+
+
+                                    </svg>
+                                    <span class="ml-3">
+                                        Login
+                                    </span>
+                                </button>
+                            </form>
 
                             <div class="my-4 md:my-8 text-center">
                                 <div
                                     class="leading-none text-sm text-white tracking-wide font-medium md:hidden block underline">
-                                    Create new account 
+                                    Create new account
                                 </div>
                                 <div
                                     class="leading-none mt-5 inline-block text-sm text-white tracking-wide font-medium  transform translate-y-1/2">
@@ -51,7 +83,7 @@
                                 </div>
                             </div>
 
-                            
+
                         </div>
                         <div class="relative w-full flex-1 mt-8">
                             <div class="flex flex-col items-center">
@@ -81,24 +113,28 @@
                             </div>
                             <p class="mt-6 text-xs text-gray-200 text-center">
                                 I agree to abide by Envasion.Ai
-                                <a  class="border-b border-gray-500">
+                                <a class="border-b border-gray-500">
                                     Terms of Service
                                 </a>
                                 and its
-                                <a  class="border-b border-gray-500 ">
+                                <a class="border-b border-gray-500 ">
                                     Privacy Policy
                                 </a>
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="absolute -bottom-56 md:-bottom-32 -left-40 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8">
+                <div
+                    class="absolute -bottom-56 md:-bottom-32 -left-40 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8">
                 </div>
-                <div class="absolute -bottom-72 md:-bottom-40 -left-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8">
+                <div
+                    class="absolute -bottom-72 md:-bottom-40 -left-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8">
                 </div>
-                <div class="absolute -top-56 md:-top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8">
+                <div
+                    class="absolute -top-56 md:-top-40 -right-0 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8">
                 </div>
-                <div class="absolute -top-40 md:-top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8">
+                <div
+                    class="absolute -top-40 md:-top-20 -right-20 w-80 h-80 border-4 rounded-full border-opacity-30 border-t-8">
                 </div>
             </div>
         </div>
