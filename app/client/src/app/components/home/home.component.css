@@ -1,0 +1,36 @@
+h1{
+    font-family: GT Walsheim;
+    letter-spacing: -2px;
+    line-height: 90%;
+}
+
+.p-align{
+    line-height: 140%;
+    display: inline-block;
+}
+
+p{
+    font-family: GT America,;
+    line-height: 36.4px;
+    font-size: 26px;
+}
+
+span{
+    font-family: GT America,;
+}
+
+.heading{
+    font-family: Oliver;
+}
+.inner-div {
+    animation: scroll 5s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
