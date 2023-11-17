@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators,FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
-import { patterns } from 'src/app/shared/Validators/regexPatterns';
+import { patterns } from 'src/app/shared/patterns/regexPatterns';
 import { signUpForm } from 'src/app/shared/models/signUpForm.interface';
 
 
@@ -16,7 +17,7 @@ export class SignUpComponent implements OnInit {
   submit: boolean = false
   confirmPasswordError: boolean = false
 
-  constructor(public fb: FormBuilder, public authService: AuthService) { }
+  constructor(public fb: FormBuilder, public authService: AuthService,public router:Router) { }
 
   ngOnInit(): void {
 
@@ -33,10 +34,10 @@ export class SignUpComponent implements OnInit {
     this.submit = true
     const password = this.registerForm.value.password
     const confirmPassword = this.registerForm.value.confirmPassword
-    if (password === confirmPassword) {
+    if (password === confirmPassword && this.registerForm.valid) {
       const formValue = this.registerForm.value as signUpForm;
       this.authService.signUp(formValue).subscribe((res) => {
-        console.log(res)
+        this.router.navigate(['/login'])
       })
     } else {
       this.confirmPasswordError = true
