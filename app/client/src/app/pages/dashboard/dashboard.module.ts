@@ -16,6 +16,8 @@ import {
   heroBolt,
   heroBars3
 } from '@ng-icons/heroicons/outline';
+import { HeadingComponent } from 'src/app/components/heading/heading.component';
+import { UserAvatarComponent } from 'src/app/components/user-avatar/user-avatar.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import {
   imports: [
     CommonModule,
     DashboardRoutingModule,
+    HeadingComponent,
+    UserAvatarComponent,
     NgIconsModule.withIcons(
       {
         heroHome,

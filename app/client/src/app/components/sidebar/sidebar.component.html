@@ -98,12 +98,12 @@
       <div class=" border-0">
         <div class="py-6 ">
           <div class="text-center text-sm text-white mb-4 space-y-2">
-            <p class="text-center font-semibold text-black">2 / 5 Free Generations</p>
+            <p class="text-center font-semibold text-black">{{freeLimit}} / 5 Free Generations</p>
 
             <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-400">
               <div
                 class="bg-black h-2.5 rounded-full"
-                style="width: 35%"
+                [style]="percentageStyle"
               ></div>
             </div>
           </div>
