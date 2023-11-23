@@ -2,8 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { signUpForm } from '../shared/models/signUpForm.interface';
 import { loginForm } from '../shared/models/loginForm.interface';
-import { loginResponse } from '../shared/models/loginResponse.interface';
-import { Observable } from 'rxjs';
 
 
 
