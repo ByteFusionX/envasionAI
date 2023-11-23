@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit {
   signUpDetails!: signUpForm
   submit: boolean = false
   confirmPasswordError: boolean = false
+  touchPass : boolean = true
 
   constructor(public fb: FormBuilder, public authService: AuthService,public router:Router) { }
 
@@ -25,6 +26,10 @@ export class SignUpComponent implements OnInit {
 
   get form(){
     return this.registerForm.controls
+  }
+
+  onPasswordTouched() {
+    this.touchPass = false
   }
 
   registerForm = this.fb.group({
