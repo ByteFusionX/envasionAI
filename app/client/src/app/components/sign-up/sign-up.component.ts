@@ -23,6 +23,10 @@ export class SignUpComponent implements OnInit {
 
   }
 
+  get form(){
+    return this.registerForm.controls
+  }
+
   registerForm = this.fb.group({
     name: patterns.name,
     email: patterns.email,
