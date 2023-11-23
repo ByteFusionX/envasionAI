@@ -34,11 +34,6 @@ export class LoginPageComponent implements OnInit {
     return this.loginForm.controls
   }
 
-  onPasswordTouched() {
-    this.touchPass = false
-  }
-
-
 
   onSubmit() {
     this.submit = true
