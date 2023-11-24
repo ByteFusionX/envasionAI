@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  windowHeight : number = 0
+
+  constructor(private _scroller: ViewportScroller) { }
+
+  onClickLink(value: string) {
+    const tagValue = value
+    console.log(tagValue);
+    
+    this._scroller.scrollToAnchor(tagValue)
+  }
 }
