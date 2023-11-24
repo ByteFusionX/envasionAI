@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar (navLink)="onClickLink($event)"></app-navbar>
 <div class="w-full bg-[#EEE9DF] sm:p-7">
     <div class="bg-[#FBF5F9] h-full sm:rounded-[40px] rounded-b-[40px] sm:p-10 p-5 sm:mt-5">
         <div class="w-full">
@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center">
+            <div class="text-center" id="Services">
                 <h3 class="text-blue-500 heading text-2xl">services</h3>
                 <h1 class="text-center sm:text-6xl text-5xl mt-10">Resources that help you <br>
                     hire with intention</h1>
@@ -35,29 +35,28 @@
                     <div class="lg:w-[400px] sm:w-[300px] w-[220px] h-80 bg-black rounded-t-3xl hover:mb-px"></div>
                     <div class="lg:w-[400px] sm:w-[300px] w-[220px] h-52 bg-black rounded-b-3xl hover:mt-px"></div>
                 </a>
-                
+
                 <a href="" class="hover:mt-0 duration-200 mt-1 sm:m-3 m-1">
                     <div class="lg:w-[400px] sm:w-[300px] w-[220px] h-80 bg-black rounded-t-3xl hover:mb-px"></div>
                     <div class="lg:w-[400px] sm:w-[300px] w-[220px] h-52 bg-black rounded-b-3xl hover:mt-px"></div>
                 </a>
-                
+
                 <a href="" class="hover:mt-0 duration-200 mt-1 sm:m-3 m-1">
                     <div class="lg:w-[400px] sm:w-[300px] w-[220px] h-80 bg-black rounded-t-3xl hover:mb-px"></div>
                     <div class="lg:w-[400px] sm:w-[300px] w-[220px] h-52 bg-black rounded-b-3xl hover:mt-px"></div>
                 </a>
-                
+
                 <a href="" class="hover:mt-0 duration-200 mt-1 sm:m-3 m-1">
                     <div class="lg:w-[400px] sm:w-[300px] w-[220px] h-80 bg-black rounded-t-3xl hover:mb-px"></div>
                     <div class="lg:w-[400px] sm:w-[300px] w-[220px] h-52 bg-black rounded-b-3xl hover:mt-px"></div>
                 </a>
-                
+
                 <a href="" class="hover:mt-0 duration-200 mt-1 sm:m-3 m-1">
                     <div class="lg:w-[400px] sm:w-[300px] w-[220px] h-80 bg-black rounded-t-3xl hover:mb-px"></div>
                     <div class="lg:w-[400px] sm:w-[300px] w-[220px] h-52 bg-black rounded-b-3xl hover:mt-px"></div>
                 </a>
-                
             </div>
-            <div class="mt-20 w-full text-center">
+            <div class="mt-20 w-full text-center" id="About">
                 <h3 class="text-blue-500 heading text-2xl">team members</h3>
                 <h1 class="text-6xl m-5">Join the club</h1>
                 <p>Homerun customers share a passion for nurturing company culture. <br> We all agree hiring can be more
@@ -95,8 +94,10 @@
                     trial today</h1>
             </div>
             <div class="w-full text-center justify-center sm:flex mt-10">
-                <button class="py-3 px-6 bg-[#EEEBE8] rounded-full m-1 sm:text-lg text-md"><span>Get demo</span></button>
-                <button class="py-3 px-6 bg-blue-500 rounded-full m-1 text-white sm:text-lg text-md"><span>Start hiring for
+                <button class="py-3 px-6 bg-[#EEEBE8] rounded-full m-1 sm:text-lg text-md"><span>Get
+                        demo</span></button>
+                <button class="py-3 px-6 bg-blue-500 rounded-full m-1 text-white sm:text-lg text-md"><span>Start hiring
+                        for
                         free</span></button>
             </div>
         </div>
