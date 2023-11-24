@@ -18,6 +18,7 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
   imports: [
     CommonModule,
     LandingRoutingModule
+    
   ]
 })
 export class LandingModule { }

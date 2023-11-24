@@ -15,16 +15,19 @@
                                     type="email" placeholder="Name" />
                                 <div *ngIf="registerForm.controls['name'].errors">
                                     <p *ngIf="submit&&registerForm.controls['name'].hasError('required')"
-                                        class="text-sm text-red-500">Name is required</p>
+                                        class="text-sm text-red-500">Name is required..</p>
                                 </div>
-                                <input formControlName="email" [class.border-red-500]="form.email.invalid && submit"
+                                <input formControlName="email" [class.border-red-500]="form.email.invalid && submit || alreadySignUp"
                                     class="w-full px-6 py-3 rounded-lg font-medium bg-white border placeholder-black text-sm focus:outline-none focus:bg-white mt-5"
                                     type="email" placeholder="Email" />
+                                    <div *ngIf="alreadySignUp">
+                                        <p class="mt-1 text-sm text-red-500">Email is already exist..</p>
+                                    </div>
                                 <div *ngIf="registerForm.controls['email'].errors">
                                     <p *ngIf="submit&&registerForm.controls['email'].hasError('required')"
-                                        class="text-sm text-red-500">Email is required</p>
+                                        class="text-sm text-red-500">Email is required..</p>
                                     <p *ngIf="registerForm.controls['email'].hasError('email')"
-                                        class="text-sm text-red-500">Invalid format</p>
+                                        class="text-sm text-red-500">Invalid format..</p>
                                 </div>
                                 <input formControlName="password"
                                     [class.border-red-500]="form.password.invalid && submit"
@@ -32,13 +35,13 @@
                                     type="password" placeholder="Password" />
                                 <div *ngIf="registerForm.controls['password'].errors">
                                     <p *ngIf="submit&&registerForm.controls['password'].hasError('required')"
-                                        class="text-sm text-red-500">Password is required</p>
+                                        class="text-sm text-red-500">Password is required..</p>
                                     <p *ngIf="registerForm.controls['password'].hasError('pattern')"
                                         class="text-sm text-red-500">Please choose a stronger password. Try a mix of
                                         letters, numbers and symbols..</p>
                                 </div>
                                 <input formControlName="confirmPassword"
-                                    [class.border-red-500]="form.confirmPassword.invalid && submit"
+                                    [class.border-red-500]="form.confirmPassword.invalid && submit || confirmPasswordError"
                                     class="w-full px-6 py-3 rounded-lg font-medium bg-white border placeholder-black text-sm focus:outline-none focus:bg-white mt-5"
                                     type="password" placeholder="Confirm Password" (click)="onPasswordTouched()" />
                                 <p *ngIf="touchPass" class="mt-1 text-sm text-gray-500">
@@ -46,10 +49,10 @@
                                 </p>
 
                                 <div *ngIf="confirmPasswordError">
-                                    <p class="text-red-600">Enter the correct password</p>
+                                    <p class="text-red-600">Enter the correct password..</p>
                                 </div>
                                 <button type="submit"
-                                    class="mt-6 tracking-wide font-semibold  w-full py-4 rounded-lg border border-whitebg-black text-white hover:bg-slate-950 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                                    class="mt-10 tracking-wide font-semibold  w-full py-4 rounded-lg border border-whitebg-black text-white hover:bg-slate-950 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                                     <svg class="w-6 h-6 -ml-2" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
@@ -75,7 +78,7 @@
                         </div>
                         <div class="relative w-full flex-1 mt-2">
                             <div class="flex flex-col items-center">
-                                <button
+                                <button (click)="GoogleAuth()"
                                     class="w-full max-w-xs font-bold shadow-sm rounded-3xl py-2 bg-white text-black flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline">
                                     <div class="bg-white p-2 rounded-full border border-b-2">
                                         <svg class="w-4" viewBox="0 0 533.5 544.3">
@@ -94,7 +97,7 @@
                                         </svg>
                                     </div>
                                     <span class="ml-4">
-                                        Login with Google
+                                        Continue with Google
                                     </span>
                                 </button>
 
@@ -138,7 +141,7 @@
                         <li class="mt-2">lkhjlasdhfjahsfjkh</li>
                     </ul>
                 </div>
-                <div class="flex justify-end mt-48">
+                <div class="flex justify-end ">
                     <button type="button"
                         class="text-white bg-black font-medium rounded-full text-md px-10 py-3 me-2 mb-2"
                         routerLink="/login">Login</button>

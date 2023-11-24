@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
+import { MatModule } from 'src/app/shared/modules/mat.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { AuthComponent } from './auth.component';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    MatModule
   ]
 })
 export class AuthModule { }
