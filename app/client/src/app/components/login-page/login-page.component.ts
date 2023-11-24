@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { loginForm } from 'src/app/shared/models/loginForm.interface';
 import { loginResponse } from 'src/app/shared/models/loginResponse.interface';
 import { patterns } from 'src/app/shared/patterns/regexPatterns';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 @Component({
   selector: 'app-login-page',
@@ -18,7 +20,7 @@ export class LoginPageComponent implements OnInit {
   userExistError: boolean = false
   touchPass: boolean = true
 
-  constructor(public fb: FormBuilder, public authService: AuthService, public router: Router) { }
+  constructor(public fb: FormBuilder, public authService: AuthService, public router: Router, public afAuth: AngularFireAuth) { }
 
   loginForm = this.fb.group({
     email: patterns.email,
@@ -27,6 +29,28 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  GoogleAuth() {
+    return this.AuthLogin(new GoogleAuthProvider());
+  }
+  // Auth logic to run auth providers
+  AuthLogin(provider: any){
+    return this.afAuth
+      .signInWithPopup(provider)
+      .then((result) => {
+        this.authService.loginWithGoogle(result.additionalUserInfo?.profile).subscribe((data) => {
+          if (data.token) {
+            localStorage.setItem('userId', data.id as string)
+            localStorage.setItem('userToken', data.token as string)
+            this.router.navigate(['/'])
+          }
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
 
 
 
@@ -41,7 +65,6 @@ export class LoginPageComponent implements OnInit {
       const details = this.loginForm.value as loginForm
       this.authService.login(details).subscribe((res: loginResponse) => {
         if (res.token) {
-          console.log(res)
           localStorage.setItem('userId', res.id as string)
           localStorage.setItem('userToken', res.token as string)
           this.router.navigate(['/'])
@@ -49,6 +72,8 @@ export class LoginPageComponent implements OnInit {
           this.incorrectPasswordError = true
         } else if (res.userExistError) {
           this.userExistError = true
+        } else if (res.loginWithGoogle){
+           alert('Already there')
         }
 
       })
