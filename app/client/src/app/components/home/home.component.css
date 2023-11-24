@@ -1,36 +1,85 @@
-h1{
+h1,
+h2 {
     font-family: GT Walsheim;
     letter-spacing: -2px;
-    line-height: 90%;
+    line-height: 80%;
 }
 
-.p-align{
+h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    height: 120px;
+    margin: auto;
+    max-width: min-content;
+    width: 75%;
+    border-right: 2px solid #2D2322;
+}
+
+.text-animation-open {
+    animation: text-animation-forward 1500ms steps(40, end) forwards, blink 800ms infinite;
+}
+
+.text-animation-close {
+    animation: text-animation-backward 1500ms steps(40, end) forwards, blink 800ms infinite;
+}
+
+.p-align {
     line-height: 140%;
     display: inline-block;
 }
 
-p{
-    font-family: GT America,;
+p {
+    font-family: GT America, ;
     line-height: 36.4px;
     font-size: 26px;
 }
 
-span{
-    font-family: GT America,;
+span {
+    font-family: GT America, ;
 }
 
-.heading{
+.heading {
     font-family: Oliver;
 }
+
 .inner-div {
     animation: scroll 5s linear infinite;
+}
+
+@keyframes text-animation-forward {
+    0% {
+        width: 0px;
+    }
+
+    100% {
+        max-width: min-content;
+        width: 75%;
+    }
+}
+
+@keyframes text-animation-backward {
+    0% {
+        max-width: min-content;
+        width: 75%;
+    }
+
+    100% {
+        width: 0%;
+    }
 }
 
 @keyframes scroll {
     0% {
         transform: translateX(0);
     }
+
     100% {
         transform: translateX(-100%);
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
     }
 }
