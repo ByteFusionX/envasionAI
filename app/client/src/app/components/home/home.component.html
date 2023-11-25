@@ -6,15 +6,36 @@
                 <h1 class="font-black sm:text-[110px] text-5xl mt-10 text-[#2D2322]">
                     creativity with <br>
                     AI-Driven <br></h1>
-                <h2 class="font-black sm:text-[100px] text-5xl mb-10 text-[#2D2322] text-center"
-                    [ngClass]=" textShow ? 'text-animation-open':'text-animation-close' ">{{heading}}</h2>
-                <p class="p-align sm:text-2xl leading-9">
-                    Discover the ultimate content creation powerhouse in EnvasionAI.<br> Empower you to achieve 10X faster results without platform-hopping hassle.
-                </p>    
+                <div class="relative w-full h-[80px] flex justify-center">
+                    <h2 class="font-black sm:text-[100px] text-5xl mb-10 text-[#2D2322] text-center overflow-hidden absolute"
+                        [ngClass]=" textShow ? 'text-animation-open':'text-animation-close'">{{heading}}</h2>
+                    <h2 class="font-black sm:text-[100px] text-5xl mb-10 text-[#ece6da] text-center overflow-hidden absolute p-1 ms-1 md:ms-4 border-r-2 border-[#2D2322]"
+                        [ngClass]=" textShow ? 'text-animation-open':'text-animation-close'">{{heading}}</h2>
+                </div>
+
+                <p class="p-align sm:text-2xl leading-9 mt-14">
+                    Discover the ultimate content creation powerhouse in EnvasionAI.<br> Empower you to achieve 10X
+                    faster results without platform-hopping hassle.
+                </p>
                 <div class="w-full justify-center sm:flex mt-10">
-                    <button class="py-3 px-6 bg-[#EEEBE8] rounded-full m-1 text-lg"><span>Get demo</span></button>
-                    <button class="py-3 px-6 bg-blue-500 rounded-full m-1 text-white text-lg"><span>Start hiring for
-                            free</span></button>
+                    <button class="py-3 px-6 bg-[#ece6da] rounded-full m-1 text-black text-lg relative">
+                        <span
+                            class="absolute top-0 left-0 w-full h-full rounded-full opacity-50 filter blur-sm bg-gradient-to-br from-stone-300 to-[#ece6da]"></span>
+                        <span
+                            class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded-full shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-stone-300 to-[#ece6da]"></span>
+                        <span
+                            class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded-full bg-gradient-to-br to-stone-300 from-[#ece6da]"></span>
+                        <span class="relative">Get demo</span>
+                    </button>
+                    <button class="py-3 px-6 bg-blue-500 rounded-full m-1 text-white text-lg relative" routerLink="login">
+                        <span
+                            class="absolute top-0 left-0 w-full h-full rounded-full opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
+                        <span
+                            class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded-full shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
+                        <span
+                            class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded-full bg-gradient-to-br to-purple-600 from-blue-500"></span>
+                        <span class="relative">Start for free</span>
+                    </button>
                 </div>
                 <div class="flex justify-center w-full h-screen mt-10">
                     <div class="sm:w-4/5 w-full h-[90%] rounded-xl border-4 border-black">
@@ -24,11 +45,10 @@
             </div>
             <div class="text-center" id="Services">
                 <h3 class="text-blue-500 heading text-2xl">services</h3>
-                <h1 class="text-center sm:text-6xl text-5xl mt-10">Resources that help you <br>
-                    hire with intention</h1>
-                <p class="m-10">Not an expert? No worries! We’ve got guides and articles <br> packed with hiring best
-                    practices and
-                    tips.</p>
+                <h1 class="text-center sm:text-6xl text-5xl mt-10 text-[#2D2322]">Enhance your productivity <br>
+                    refine your work</h1>
+                <p class="m-10 text-[#2D2322]">Take advantage of our beginner-friendly features, <br> explore free trial
+                    to jumpstart your progress.</p>
             </div>
             <div class="w-full flex overflow-hidden overflow-x-auto">
                 <a href="" class="hover:mt-0 duration-200 mt-1 sm:m-3 m-1">
@@ -58,9 +78,9 @@
             </div>
             <div class="mt-20 w-full text-center" id="About">
                 <h3 class="text-blue-500 heading text-2xl">team members</h3>
-                <h1 class="text-6xl m-5">Join the club</h1>
-                <p>Homerun customers share a passion for nurturing company culture. <br> We all agree hiring can be more
-                    meaningful and personal.</p>
+                <h1 class="text-6xl m-5 text-[#2D2322]">Meet experts</h1>
+                <p class="text-[#2D2322]">Stay connected to receive updates on upcoming features from our team. <br> 
+                    Let your voice be heard, share your experiences with our team.</p>
             </div>
             <div class="w-full mt-10 flex overflow-hidden">
                 <div class="bg-white shadow m-8 rounded-3xl inner-div">
@@ -88,17 +108,30 @@
                         srcset="https://assets.website-files.com/58d684124f3644b01d649b26/645218b27f543022796d985d_footer-icons-p-500.png 500w, https://assets.website-files.com/58d684124f3644b01d649b26/645218b27f543022796d985d_footer-icons.png 587w"
                         class="cta-img">
                 </div>
-                <h1 class="font-black text-6xl m-10 text-white">
+                <h1 class="font-black md:text-6xl text-5xl md:m-10 m-5 text-white text text-center">
                     Start your <br>
-                    free Homerun <br>
-                    trial today</h1>
+                    free trial<br>
+                     today</h1>
             </div>
             <div class="w-full text-center justify-center sm:flex mt-10">
-                <button class="py-3 px-6 bg-[#EEEBE8] rounded-full m-1 sm:text-lg text-md"><span>Get
-                        demo</span></button>
-                <button class="py-3 px-6 bg-blue-500 rounded-full m-1 text-white sm:text-lg text-md"><span>Start hiring
-                        for
-                        free</span></button>
+                <button class="py-3 px-6 bg-[#EEEBE8] rounded-full m-1 text-black text-lg relative">
+                    <span
+                        class="absolute top-0 left-0 w-full h-full rounded-full opacity-50 filter blur-sm bg-gradient-to-br from-stone-300 to-[#EEEBE8]"></span>
+                    <span
+                        class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded-full shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-stone-300 to-[#EEEBE8]"></span>
+                    <span
+                        class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded-full bg-gradient-to-br to-stone-300 from-[#EEEBE8]"></span>
+                    <span class="relative">Get demo</span>
+                </button>
+                <button class="py-3 px-6 bg-blue-500 rounded-full m-1 text-white text-lg relative">
+                    <span
+                        class="absolute top-0 left-0 w-full h-full rounded-full opacity-50 filter blur-sm bg-gradient-to-br from-purple-600 to-blue-500"></span>
+                    <span
+                        class="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded-full shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-purple-600 to-blue-500"></span>
+                    <span
+                        class="absolute inset-0 w-full h-full transition duration-200 ease-out rounded-full bg-gradient-to-br to-purple-600 from-blue-500"></span>
+                    <span class="relative">Start for free</span>
+                </button>
             </div>
         </div>
     </div>
