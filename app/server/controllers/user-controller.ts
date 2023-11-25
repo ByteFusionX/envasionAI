@@ -40,15 +40,19 @@ export const verifyLogin = async (req: Request, res: Response, next: NextFunctio
         const { email, password } = req.body
         const user = await userModel.findOne({ email: email })
         if (user) {
-            const hashPassword = await bcrypt.compare(password, user.password)
-            if (hashPassword) {
-                const payload = { sub: user._id, email: email }
-                const token = jwt.sign(payload, process.env.SECRET_KEY!, {
-                    expiresIn: "2d",
-                })
-                res.send({ token: token, id: user._id })
-            } else {
+            if (!user.password) {
                 res.send({ incorrectPassword: true })
+            } else {
+                const hashPassword = await bcrypt.compare(password, user.password)
+                if (hashPassword) {
+                    const payload = { sub: user._id, email: email }
+                    const token = jwt.sign(payload, process.env.SECRET_KEY!, {
+                        expiresIn: "2d",
+                    })
+                    res.send({ token: token, id: user._id })
+                } else {
+                    res.send({ incorrectPassword: true })
+                }
             }
         }
         else {

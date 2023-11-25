@@ -6,7 +6,7 @@ import { UserLoginGuard } from 'src/app/guard/logged.guard';
 const routes: Routes = [
   {
     path: '',
-    component: LandingComponent,canActivate:[UserLoginGuard]
+    component: LandingComponent,
   }
 ];
 
