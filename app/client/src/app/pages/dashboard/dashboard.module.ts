@@ -40,4 +40,5 @@ import {
       }),
   ]
 })
+
 export class DashboardModule { }
