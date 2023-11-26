@@ -70,11 +70,17 @@ export class LoginPageComponent implements OnInit {
           this.router.navigate(['/'])
         } else if (res.incorrectPassword) {
           this.incorrectPasswordError = true
+          setTimeout(() => {
+            this.incorrectPasswordError = false
+          }, 3000);
         } else if (res.userExistError) {
           this.userExistError = true
-        } else if (res.loginWithGoogle){
-           alert('Already there')
-        }
+          setTimeout(() => {
+            this.userExistError = false
+          }, 3000);
+         
+        } 
+        
 
       })
     }

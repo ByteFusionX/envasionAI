@@ -18,7 +18,7 @@ import { UserHttpInterceptor } from 'src/app/interceptor/http.interceptor';
     MatModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: UserHttpInterceptor, multi: true }
+   
   ]
 })
 export class AuthModule { }
