@@ -1,4 +1,24 @@
-.nav-button:hover{
-    background-color: #254cda;
+.nav-large-button:hover,
+.nav-small-button:hover {
     transform: rotate(-2deg);
+}
+
+.nav-bar-inner-up {
+    position: fixed;
+}
+
+@media (max-width:768px) {
+    .nav-links,
+    .nav-large-button {
+        display: none;
+    }
+}
+
+@media(min-width:768px) {
+
+    .nav-small-button,
+    .nav-toggle-btn,
+    .navbar-dropdown {
+        display: none;
+    }
 }
