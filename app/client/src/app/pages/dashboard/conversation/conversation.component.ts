@@ -23,15 +23,15 @@ export class ConversationComponent {
   }
 
   onSubmit() {
-    if (this.isLoading === false) {
+    if (this.isLoading === false && this.message) {
       const userId = localStorage.getItem("userId");
       const userMessage = { role: "user", content: this.message };
       this.messages.push(userMessage);
       this.message = ''
       this.isLoading = true;
-      const body: conversationBody = { userId: userId, message: userMessage }
-      console.log(body)
-      this.openAiService.sendMessage(body).subscribe((res: Conversationmessages) => {
+
+      this.openAiService.sendMessage(this.messages).subscribe((res: Conversationmessages) => {
+        console.log(res)
         this.messages.push(res)
         this.isLoading = false;
         this.subscriptionService.getLimit(userId).subscribe((res: number) => {

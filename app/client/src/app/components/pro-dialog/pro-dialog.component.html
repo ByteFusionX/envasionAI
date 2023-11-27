@@ -1,29 +1,56 @@
-<div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow px-16">
-    <div class="flex flex-row justify-center items-center">
-        <p class="mb-4 text-2xl font-bold">Envasion </p>
-        <div class="bg-black text-white px-3 py-0.5 ml-1 mb-2 font-semibold rounded-full">PRO</div>
+<div
+  class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow px-16"
+>
+  <div class="flex flex-row justify-center items-center">
+    <img fill alt="Logo" src="assets/logo.png" class="h-16  cursor-pointer" />
+    <div  class="bg-black text-white px-3 py-0.5 ml-2 text-sm font-semibold rounded-xl h-6">
+      PRO
     </div>
-    <div class="flex justify-center items-baseline my-3 mb-8">
-        <span class="mr-2 text-5xl font-extrabold">$20</span>
-        <span class="text-gray-500 ">/month</span>
-    </div>
-    <!-- List -->
-    <ul role="list" class="mb-8 space-y-4 text-left">
-        <li class="flex items-center space-x-3">
-            <!-- Icon -->
-            <svg class="flex-shrink-0 w-5 h-5 text-green-500 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            <span>Unlimited usage for 1 month</span>
-        </li>
-        <li class="flex items-center space-x-3">
-            <!-- Icon -->
-            <svg class="flex-shrink-0 w-5 h-5 text-green-500 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-            <span>No setup, or hidden fees</span>
-        </li>
-    </ul>
-    <button
-            class="w-full bg-black text-white hover:bg-black/90 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  py-2"
-          >
-            Upgrade
-          <ng-icon class="ml-1" size="18" name="heroBolt"></ng-icon>
-
-          </button></div>
+  </div>
+  <div class="flex justify-center items-baseline my-3 mb-8">
+    <span class="mr-2 text-5xl font-extrabold">₹399.00</span>
+    <span class="text-gray-500">/month</span>
+  </div>
+  <!-- List -->
+  <ul role="list" class="mb-8 space-y-4 text-left">
+    <li class="flex items-center space-x-3">
+      <!-- Icon -->
+      <svg
+        class="flex-shrink-0 w-5 h-5 text-green-500"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+      <span>Unlimited usage for 1 month</span>
+    </li>
+    <li class="flex items-center space-x-3">
+      <!-- Icon -->
+      <svg
+        class="flex-shrink-0 w-5 h-5 text-green-500"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+          clip-rule="evenodd"
+        ></path>
+      </svg>
+      <span>No setup, or hidden fees</span>
+    </li>
+  </ul>
+  <button
+    (click)="onUpgrade()"
+    class="w-full bg-black text-white hover:bg-black/90 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 py-2"
+  >
+    Upgrade
+    <ng-icon class="ml-1" size="18" name="heroBolt"></ng-icon>
+  </button>
+</div>

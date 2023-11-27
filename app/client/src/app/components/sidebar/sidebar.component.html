@@ -1,25 +1,31 @@
 <button
   type="button"
-  class="fixed inline-flex items-center p-2 mt-2 ml-3 mb-3 text-sm text-gray-900 rounded-lg md:hidden hover:bg-gray-100  "
+  class="fixed inline-flex items-center p-2 mt-2 ml-3 mb-3 text-sm text-gray-900 rounded-lg md:hidden hover:bg-gray-100"
   (click)="toggleSidebar()"
-  >
+>
   <span class="sr-only">Open sidebar</span>
   <ng-icon size="24" name="heroBars3"></ng-icon>
-
 </button>
 
 <aside
-  class="bg-[#EEE9DF] fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full md:translate-x-0 "
+  class="bg-[#EEE9DF] fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full md:translate-x-0"
   [class.translate-x-0]="showSidebar"
 >
-  <div class="h-full px-3 py-4 overflow-y-auto flex flex-col justify-between border-r-2 border-[#e4e3de]">
+  <div
+    class="h-full px-3 py-4 overflow-y-auto flex flex-col justify-between border-r-2 border-[#e4e3de]"
+  >
     <ul class="space-y-2 font-medium">
       <li class="border-b-2 border-[#e4e3de]">
-        <div href="/dashboard" class="flex items-center pl-3 mb-8">
-          <div class="relative h-8 w-8 mr-4">
-            <img fill alt="Logo" src="/logo.png" />
+        <div    class="flex items-center pl-3 mb-4">
+          <div class="relative mr-4 flex items-center justify-center">
+            <img [routerLink]="['/']" fill alt="Logo" src="assets/logo.png" class="h-16  cursor-pointer" />
+            <!-- <p class=" text-2xl font-bold">EnvasionAI</p> -->
+
+            <div *ngIf="isPro" class="bg-black text-white px-3 py-0.5 ml-2 text-sm font-semibold rounded-xl h-6">
+              PRO
+            </div>
           </div>
-          <h1 class="text-2xl font-bold">Envasion</h1>
+          <!-- <h1 class="text-2xl font-bold">Envasion</h1> -->
         </div>
       </li>
       <li>
@@ -94,28 +100,33 @@
         </a>
       </li>
     </ul>
-    <div class="px-3 bg-white rounded-lg ">
-      <div class=" border-0">
-        <div class="py-6 ">
-          <div class="text-center text-sm text-white mb-4 space-y-2">
-            <p class="text-center font-semibold text-black">{{freeLimit}} / 5 Free Generations</p>
+    <ng-container *ngIf="!isPro">
+      <div class="px-3 bg-white rounded-lg">
+        <div class="border-0">
+          <div class="py-6">
+            <div class="text-center text-sm text-white mb-4 space-y-2">
+              <p class="text-center font-semibold text-black">
+                {{ freeLimit }} / 5 Free Generations
+              </p>
 
-            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-400">
               <div
-                class="bg-black h-2.5 rounded-full"
-                [style]="percentageStyle"
-              ></div>
+                class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-400"
+              >
+                <div
+                  class="bg-black h-2.5 rounded-full"
+                  [style]="percentageStyle"
+                ></div>
+              </div>
             </div>
+            <button (click)="onUpgrade()"
+              class="w-full bg-black text-white hover:bg-black/90 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 py-2"
+            >
+              Upgrade
+              <ng-icon class="ml-1" size="18" name="heroBolt"></ng-icon>
+            </button>
           </div>
-          <button
-            class="w-full bg-black text-white hover:bg-black/90 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50  py-2"
-          >
-            Upgrade
-          <ng-icon class="ml-1" size="18" name="heroBolt"></ng-icon>
-
-          </button>
         </div>
       </div>
-    </div>
+    </ng-container>
   </div>
 </aside>
