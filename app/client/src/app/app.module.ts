@@ -38,7 +38,7 @@ import { UserHttpInterceptor } from './interceptor/http.interceptor';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    BrowserAnimationsModule,
+   
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: UserHttpInterceptor, multi: true }
