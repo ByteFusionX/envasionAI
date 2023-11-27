@@ -8,18 +8,7 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
-import {
-  heroHome,
-  heroChatBubbleLeft,
-  heroPhoto,
-  heroVideoCamera,
-  heroMusicalNote,
-  heroCodeBracket,
-  heroCog6Tooth,
-  heroBolt,
-  heroBars3,
-  heroArrowSmallRight
-} from '@ng-icons/heroicons/outline';
+
 import { NgIconsModule } from '@ng-icons/core';
 import { HeadingComponent } from './components/heading/heading.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

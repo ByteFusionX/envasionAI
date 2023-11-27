@@ -7,6 +7,7 @@ import { SubscriptionService } from 'src/app/service/subscription.service';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
+  isPro : boolean = true;
 
   showSidebar = false;
   freeLimit :number = 0;
@@ -16,15 +17,20 @@ export class SidebarComponent {
   ngOnInit(){
     const userId = localStorage.getItem('userId')
 
-    this.subscriptionService.freeLimit$.subscribe((res: number) => {
-      this.freeLimit = res;
-      this.calculatePercentage(this.freeLimit)
-    });
-
-    this.subscriptionService.getLimit(userId).subscribe((res:number)=>{
-      this.freeLimit = res;
-      this.calculatePercentage(this.freeLimit)
+    this.subscriptionService.checkSubscriptiohn().subscribe((res)=>{
+      this.isPro = res;
     })
+
+      this.subscriptionService.freeLimit$.subscribe((res: number) => {
+        this.freeLimit = res;
+        this.calculatePercentage(this.freeLimit)
+      });
+  
+      this.subscriptionService.getLimit(userId).subscribe((res:number)=>{
+        this.freeLimit = res;
+        this.calculatePercentage(this.freeLimit)
+      })
+    
   }
   toggleSidebar() {
     this.showSidebar = !this.showSidebar;
@@ -39,5 +45,13 @@ export class SidebarComponent {
   calculatePercentage(limit:number){
     const percentage = limit / 5 * 100
     this.percentageStyle = `width: ${percentage}%`
+  }
+
+  onUpgrade(){
+    const userId = localStorage.getItem('userId')
+    console.log(userId)
+    this.subscriptionService.getPaymentUrl(userId).subscribe((res)=>{
+      window.location.href = res;
+    })
   }
 }

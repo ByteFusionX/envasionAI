@@ -8,6 +8,7 @@ import { OpenAiService } from 'src/app/service/openAi.service';
 import { FormsModule } from '@angular/forms'
 import { UserAvatarComponent } from 'src/app/components/user-avatar/user-avatar.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatModule } from 'src/app/shared/modules/mat.module';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     HeadingComponent,
     FormsModule,
     UserAvatarComponent,
-    MatDialogModule
+    MatModule
   ],
   providers:[OpenAiService]
 })
