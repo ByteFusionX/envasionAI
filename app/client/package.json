@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "postinstall": "patch-package"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +26,7 @@
     "@ng-icons/core": "^25.6.1",
     "@ng-icons/heroicons": "^25.6.1",
     "firebase": "10.6.0",
+    "patch-package": "^8.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.6.2",
     "zone.js": "^0.13.3"
