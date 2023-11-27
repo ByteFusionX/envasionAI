@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { NgIconsModule } from '@ng-icons/core';
+import { HeadingComponent } from './components/heading/heading.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
@@ -32,6 +35,8 @@ import { UserHttpInterceptor } from './interceptor/http.interceptor';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HeadingComponent,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
