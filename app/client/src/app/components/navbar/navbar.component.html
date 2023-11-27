@@ -1,6 +1,6 @@
 <div class="absolute w-full flex justify-center z-10 shadow">
   <div
-    class="nav-bar-inner-up bg-white z-20 lg:w-3/5 xs:w-4/5 w-full h-20 mt-2 rounded-[50px] flex xs:grid grid-cols-4 md:grid-cols-7 justify-center items-center opacity-95"
+    class="nav-bar-inner-up bg-white z-20 lg:w-2/4 xs:w-4/5 w-full h-20 mt-2 rounded-[50px] flex xs:grid grid-cols-4 md:grid-cols-7 justify-center items-center opacity-95"
     [ngClass]="{ 'nav-bar-inner-up' :scrollUp}">
     <button type="button"
       class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-800 nav-toggle-btn"
@@ -16,8 +16,8 @@
           d="m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z" />
       </svg>
     </button>
-    <div class=" col-span-2 flex justify-center">
-      <a href="" class="sm:text-2xl text-xl underline sm:px-6 sm:py-3 p-2">Envasion.ai</a>
+    <div class="col-span-2 flex justify-center">
+      <img [routerLink]="['/']" fill alt="Logo" src="assets/logo.png" class="h-14  cursor-pointer" />
     </div>
     <div class="flex nav-links md:col-span-3 justify-center" (click)="onLinkClicks($event)">
       <a class="p-1 lg:p-2 xl:p-4 text-xl tracking-wide" href="/">Home</a>
@@ -26,7 +26,7 @@
       <a class="p-1 lg:p-2 xl:p-4 text-xl tracking-wide cursor-pointer">About</a>
     </div>
     <div class="nav-large-button col-span-2 flex justify-center">
-      <a href="" class="px-6 py-3 text-lg bg-[#4F75FE] text-white rounded-full tracking-wide" routerLink="login">Start
+      <a href="" class="px-5 py-2 text-lg bg-[#4F75FE] text-white rounded-full tracking-wide" routerLink="login">Start
         for
         free</a>
     </div>

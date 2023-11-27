@@ -1,9 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { OpenAI } from 'openai';
-import { conversationBody } from '../shared/models/conversationBody.interface';
 import { Observable, Subject } from 'rxjs';
-import { Conversationmessages } from '../shared/models/messages.interface';
 
 
 @Injectable({
