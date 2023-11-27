@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-<<<<<<< HEAD
 import { AuthService } from 'src/app/service/auth.service';
 import { userDetails } from 'src/app/shared/models/userDetails.interface';
-=======
->>>>>>> 3bf647e0463531aa7e99ad3d89468a5aeb06e855
 
 @Component({
   selector: 'app-user-avatar',
