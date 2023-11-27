@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators,FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { patterns } from 'src/app/shared/patterns/regexPatterns';
 import { signUpForm } from 'src/app/shared/models/signUpForm.interface';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { GoogleAuthProvider } from 'firebase/auth';
+import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -16,11 +20,47 @@ export class SignUpComponent implements OnInit {
   signUpDetails!: signUpForm
   submit: boolean = false
   confirmPasswordError: boolean = false
+  touchPass: boolean = true
+  alreadySignUp: boolean = false
 
-  constructor(public fb: FormBuilder, public authService: AuthService,public router:Router) { }
+  constructor(public fb: FormBuilder,
+    public authService: AuthService,
+    public router: Router,
+    public afAuth: AngularFireAuth,
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
+   
+  }
 
+  get form() {
+    return this.registerForm.controls
+  }
+
+  GoogleAuth() {
+    return this.AuthLogin(new GoogleAuthProvider());
+  }
+
+  AuthLogin(provider: any) {
+    return this.afAuth
+      .signInWithPopup(provider)
+      .then((result) => {
+        this.authService.loginWithGoogle(result.additionalUserInfo?.profile).subscribe((data) => {
+          if (data.token) {
+            localStorage.setItem('userId', data.id as string)
+            localStorage.setItem('userToken', data.token as string)
+            this.router.navigate(['/'])
+          }
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  onPasswordTouched() {
+    this.touchPass = false
   }
 
   registerForm = this.fb.group({
@@ -37,7 +77,24 @@ export class SignUpComponent implements OnInit {
     if (password === confirmPassword && this.registerForm.valid) {
       const formValue = this.registerForm.value as signUpForm;
       this.authService.signUp(formValue).subscribe((res) => {
-        this.router.navigate(['/login'])
+        if (res.loginWithGoogle) {
+          const dialogRef = this.dialog.open(AlertDialogComponent, {
+            width: '490px',
+            panelClass: 'custom-container' 
+          })
+        } else if (res.alreadySignUp) {
+
+          this.alreadySignUp = true
+          setTimeout(() => {
+            this.alreadySignUp = true
+          }, 4000);
+
+        } else {
+          localStorage.setItem('userId', res.id as string)
+          localStorage.setItem('userToken', res.token as string)
+          this.router.navigate(['/'])
+        }
+
       })
     } else {
       this.confirmPasswordError = true

@@ -5,3 +5,11 @@ export interface signUpForm {
     confirmPassword:string|null
 }
 
+export interface signupResponse {
+    loginWithGoogle:boolean,
+    alreadySignUp:boolean,
+    status:boolean,
+    id?:string,
+    token?:string
+}
+
