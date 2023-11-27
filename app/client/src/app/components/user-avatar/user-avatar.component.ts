@@ -9,5 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./user-avatar.component.css']
 })
 export class UserAvatarComponent {
-
+  
 }
