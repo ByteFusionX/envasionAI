@@ -8,4 +8,5 @@ import { MatDialogModule } from '@angular/material/dialog';
     declarations: [],
     providers: [],
 })
+
 export class MatModule { }
