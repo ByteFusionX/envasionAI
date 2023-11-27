@@ -7,7 +7,7 @@ import { SubscriptionService } from 'src/app/service/subscription.service';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
-  isPro : boolean = true;
+  isPro : boolean = false;
 
   showSidebar = false;
   freeLimit :number = 0;

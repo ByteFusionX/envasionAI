@@ -47,11 +47,21 @@ export class SignUpComponent implements OnInit {
       .signInWithPopup(provider)
       .then((result) => {
         this.authService.loginWithGoogle(result.additionalUserInfo?.profile).subscribe((data) => {
-          if (data.token) {
-            localStorage.setItem('userId', data.id as string)
-            localStorage.setItem('userToken', data.token as string)
-            this.router.navigate(['/'])
+          console.log(data)
+          if (data.alreadyRegistered) {
+            console.log(data)
+            const dialogRef = this.dialog.open(AlertDialogComponent, {
+              width: '490px',
+              panelClass: 'custom-container' 
+            })
+          } else{
+            if (data.token) {
+              localStorage.setItem('userId', data.id as string)
+              localStorage.setItem('userToken', data.token as string)
+              this.router.navigate(['/'])
+            }
           }
+          
         })
       })
       .catch((error) => {

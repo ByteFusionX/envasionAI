@@ -14,12 +14,12 @@ import { increaseLimit } from "../lib/util";
 export const addUser = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { name, email, password } = req.body
-        const userExist = await userModel.findOne({ email: email })
+        const userExist = await userModel.findOne({ email: email });
         if (userExist) {
             if (userExist.googleId) {
-                res.send({ loginWithGoogle: true })
+                 res.send({ loginWithGoogle: true })
             } else {
-                res.send({ alreadySignUp: true })
+                 res.send({ alreadySignUp: true })
             }
         } else {
             const encryptedPassword = await bcrypt.hash(password, 10)
@@ -31,7 +31,7 @@ export const addUser = async (req: Request, res: Response, next: NextFunction) =
 
             await newUser.save()
 
-            res.send({ status: true })
+             res.send({ status: true })
         }
     } catch (error) {
         next(error)
@@ -72,8 +72,11 @@ export const loginWithGoogle = async (req: Request, res: Response, next: NextFun
     try {
 
         const { email, name, id, picture } = req.body
-
-        const googleIdCheck = await userModel.findOne({ googleId: id })
+        const userExist = await userModel.findOne({ email: email });
+        if (userExist) {
+                return res.send({ alreadyRegistered: true })
+        } else {
+            const googleIdCheck = await userModel.findOne({ googleId: id })
         if (googleIdCheck) {
             const payload = { sub: googleIdCheck._id, email: email }
             const token = jwt.sign(payload, process.env.SECRET_KEY!, {
@@ -97,6 +100,8 @@ export const loginWithGoogle = async (req: Request, res: Response, next: NextFun
             }
 
         }
+        }
+        
 
     } catch (error) {
         next(error)

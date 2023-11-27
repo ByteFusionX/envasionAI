@@ -3,5 +3,5 @@ export interface loginWithGoogle {
     email?: string | undefined
     imageURL?: string | undefined
     id?:string | undefined
-
+    alreadyRegistered?:boolean
 }

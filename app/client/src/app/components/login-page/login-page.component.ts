@@ -7,6 +7,8 @@ import { loginForm } from 'src/app/shared/models/loginForm.interface';
 import { loginResponse } from 'src/app/shared/models/loginResponse.interface';
 import { patterns } from 'src/app/shared/patterns/regexPatterns';
 import { GoogleAuthProvider } from 'firebase/auth';
+import { MatDialog } from '@angular/material/dialog';
+import { AlertDialogComponent } from '../alert-dialog/alert-dialog.component';
 
 @Component({
   selector: 'app-login-page',
@@ -20,7 +22,7 @@ export class LoginPageComponent implements OnInit {
   userExistError: boolean = false
   touchPass: boolean = true
 
-  constructor(public fb: FormBuilder, public authService: AuthService, public router: Router, public afAuth: AngularFireAuth) { }
+  constructor(public fb: FormBuilder, public authService: AuthService, public router: Router, public afAuth: AngularFireAuth,private dialog:MatDialog) { }
 
   loginForm = this.fb.group({
     email: patterns.email,
@@ -39,10 +41,17 @@ export class LoginPageComponent implements OnInit {
       .signInWithPopup(provider)
       .then((result) => {
         this.authService.loginWithGoogle(result.additionalUserInfo?.profile).subscribe((data) => {
-          if (data.token) {
-            localStorage.setItem('userId', data.id as string)
-            localStorage.setItem('userToken', data.token as string)
-            this.router.navigate(['/'])
+          if (data.alreadyRegistered) {
+            const dialogRef = this.dialog.open(AlertDialogComponent, {
+              width: '490px',
+              panelClass: 'custom-container' 
+            })
+          } else{
+            if (data.token) {
+              localStorage.setItem('userId', data.id as string)
+              localStorage.setItem('userToken', data.token as string)
+              this.router.navigate(['/'])
+            }
           }
         })
       })
@@ -64,24 +73,24 @@ export class LoginPageComponent implements OnInit {
     if (this.loginForm.valid) {
       const details = this.loginForm.value as loginForm
       this.authService.login(details).subscribe((res: loginResponse) => {
-        if (res.token) {
-          localStorage.setItem('userId', res.id as string)
-          localStorage.setItem('userToken', res.token as string)
-          this.router.navigate(['/'])
-        } else if (res.incorrectPassword) {
-          this.incorrectPasswordError = true
-          setTimeout(() => {
-            this.incorrectPasswordError = false
-          }, 3000);
-        } else if (res.userExistError) {
-          this.userExistError = true
-          setTimeout(() => {
-            this.userExistError = false
-          }, 3000);
-         
-        } 
+       
+          if (res.token) {
+            localStorage.setItem('userId', res.id as string)
+            localStorage.setItem('userToken', res.token as string)
+            this.router.navigate(['/'])
+          } else if (res.incorrectPassword) {
+            this.incorrectPasswordError = true
+            setTimeout(() => {
+              this.incorrectPasswordError = false
+            }, 3000);
+          } else if (res.userExistError) {
+            this.userExistError = true
+            setTimeout(() => {
+              this.userExistError = false
+            }, 3000);
+           
+          }
         
-
       })
     }
   }
