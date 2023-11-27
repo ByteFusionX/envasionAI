@@ -6,7 +6,10 @@ import { loginResponse } from '../shared/models/loginResponse.interface';
 import { Observable } from 'rxjs';
 import { loginWithGoogle } from '../shared/models/loginWithGoogle';
 import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
+<<<<<<< HEAD
 import { userDetails } from '../shared/models/userDetails.interface';
+=======
+>>>>>>> 3bf647e0463531aa7e99ad3d89468a5aeb06e855
 
 
 
