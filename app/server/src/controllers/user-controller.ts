@@ -103,6 +103,20 @@ export const loginWithGoogle = async (req: Request, res: Response, next: NextFun
     }
 }
 
+export const getUserDetails = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const userId = req.params.userId;
+        if(userId){
+            const userDetails = await userModel.findById(userId);
+            return res.status(200).json(userDetails);
+        }
+        return res.status(400).json({message:"userId not provided or not found"});
+    } catch (error) {
+        next(error)
+    }
+}
+
+
 export const getMessage = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const messages = req.body;
@@ -148,6 +162,7 @@ export const getLimit = async (req: Request, res: Response, next: NextFunction) 
         } else {
             const createdLimit = await userApiLimitModel.create({
                 userId,
+                updatedAt:Date.now()
             });
 
             return res.status(200).json(createdLimit.count)

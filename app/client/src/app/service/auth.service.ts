@@ -6,6 +6,7 @@ import { loginResponse } from '../shared/models/loginResponse.interface';
 import { Observable } from 'rxjs';
 import { loginWithGoogle } from '../shared/models/loginWithGoogle';
 import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { userDetails } from '../shared/models/userDetails.interface';
 
 
 
@@ -27,5 +28,10 @@ export class AuthService {
 
   loginWithGoogle(details:loginWithGoogle|undefined|null):Observable<loginResponse>{
     return this.http.post<loginResponse>('http://localhost:3000/loginWithGoogle',details)
+  }
+
+  getUserDetails():Observable<userDetails>{
+    const userId = localStorage.getItem('userId')
+    return this.http.get<userDetails>(`http://localhost:3000/profile/${userId}`)
   }
 }
