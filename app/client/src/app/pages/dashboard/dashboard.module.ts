@@ -44,4 +44,5 @@ import { UserAvatarComponent } from 'src/app/components/user-avatar/user-avatar.
       }),
   ]
 })
+
 export class DashboardModule { }

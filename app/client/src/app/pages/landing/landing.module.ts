@@ -5,6 +5,7 @@ import { LandingRoutingModule } from './landing-routing.module';
 import { LandingComponent } from './landing.component';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 
 
 @NgModule({
@@ -12,10 +13,12 @@ import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
     LandingComponent,
     HomeComponent,
     NavbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
     LandingRoutingModule
+    
   ]
 })
 export class LandingModule { }
