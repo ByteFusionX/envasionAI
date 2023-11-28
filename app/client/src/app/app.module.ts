@@ -9,7 +9,6 @@ import { LoginPageComponent } from './components/login-page/login-page.component
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { NgIconsModule } from '@ng-icons/core';
 import { HeadingComponent } from './components/heading/heading.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { AngularFireModule } from '@angular/fire/compat';
