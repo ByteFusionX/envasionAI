@@ -1,0 +1,13 @@
+a.disabled {
+    color: rgb(180, 180, 180);
+    cursor: not-allowed;
+}
+
+a.disabled:hover {
+    color: rgb(180, 180, 180);
+    cursor: not-allowed;
+}
+
+
+
+

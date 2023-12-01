@@ -78,3 +78,7 @@ body::-webkit-scrollbar-track {
   border-radius: 500px !important;
   overflow: hidden;
 }
+
+.markdown-clipboard-button{
+  color: white;
+}

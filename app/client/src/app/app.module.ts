@@ -18,6 +18,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from 'src/environments/environment';
 import { UserHttpInterceptor } from './interceptor/http.interceptor';
+import { MarkdownModule } from 'ngx-markdown';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { UserHttpInterceptor } from './interceptor/http.interceptor';
     AppComponent,
     LoginPageComponent,
     SignUpComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,11 @@ import { UserHttpInterceptor } from './interceptor/http.interceptor';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-   
+
+    MarkdownModule.forRoot(),
+
+
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: UserHttpInterceptor, multi: true }
