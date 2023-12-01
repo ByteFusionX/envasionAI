@@ -37,7 +37,7 @@
            <div class='h-3 w-3 bg-black rounded-full animate-bounce'></div>
          </div>
         </div>
-        <div class="h-full p-10 flex flex-col items-start justify-center" *ngIf="messages.length === 0 && !isLoading">
+        <div class="h-full p-10 flex flex-col items-center justify-center" *ngIf="messages.length === 0 && !isLoading">
           <div class="relative h-52 w-52">
             <img src="assets/recommendations-img.svg" alt="asfd" >
 
@@ -48,7 +48,7 @@
         </div>
     <div class="flex flex-col-reverse gap-y-4">
       <div *ngFor="let message of messages"
-      class="p-8 w-full flex items-center gap-x-8 rounded-lg justify-start"
+      class="p-8 w-full flex items-start gap-x-8 rounded-lg justify-start"
       [ngClass]="{
          'bg-white border border-black/10': message.role === 'user',
          'bg-[#eceff4]': message.role === 'assistant'
