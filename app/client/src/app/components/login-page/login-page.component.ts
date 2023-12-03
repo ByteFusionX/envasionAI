@@ -42,7 +42,7 @@ export class LoginPageComponent implements OnInit {
       .then((result) => {
         this.authService.loginWithGoogle(result.additionalUserInfo?.profile).subscribe((data) => {
           if (data.alreadyRegistered) {
-            const dialogRef = this.dialog.open(AlertDialogComponent, {
+             this.dialog.open(AlertDialogComponent, {
               width: '490px',
               panelClass: 'custom-container' 
             })

@@ -22,15 +22,19 @@ export class AuthService {
     return this.http.post<signupResponse>('http://localhost:3000/signup', details)
   }
 
-  login(details: loginForm ): Observable<loginResponse> {
+  login(details: loginForm): Observable<loginResponse> {
     return this.http.post<loginResponse>('http://localhost:3000/login', details)
   }
 
-  loginWithGoogle(details:loginWithGoogle|undefined|null):Observable<loginResponse>{
-    return this.http.post<loginResponse>('http://localhost:3000/loginWithGoogle',details)
+  loginWithGoogle(details: loginWithGoogle | undefined | null): Observable<loginResponse> {
+    return this.http.post<loginResponse>('http://localhost:3000/loginWithGoogle', details)
   }
 
-  getUserDetails():Observable<userDetails>{
+  signUpWithGoogle(details: loginWithGoogle | undefined | null): Observable<loginResponse> {
+    return this.http.post<loginResponse>('http://localhost:3000/signUpWithGoogle', details)
+  }
+
+  getUserDetails(): Observable<userDetails> {
     const userId = localStorage.getItem('userId')
     return this.http.get<userDetails>(`http://localhost:3000/profile/${userId}`)
   }
