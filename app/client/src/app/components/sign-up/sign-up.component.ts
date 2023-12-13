@@ -46,11 +46,11 @@ export class SignUpComponent implements OnInit {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        this.authService.loginWithGoogle(result.additionalUserInfo?.profile).subscribe((data) => {
+        this.authService.signUpWithGoogle(result.additionalUserInfo?.profile).subscribe((data) => {
           console.log(data)
           if (data.alreadyRegistered) {
             console.log(data)
-            const dialogRef = this.dialog.open(AlertDialogComponent, {
+            this.dialog.open(AlertDialogComponent, {
               width: '490px',
               panelClass: 'custom-container' 
             })
@@ -88,7 +88,7 @@ export class SignUpComponent implements OnInit {
       const formValue = this.registerForm.value as signUpForm;
       this.authService.signUp(formValue).subscribe((res) => {
         if (res.loginWithGoogle) {
-          const dialogRef = this.dialog.open(AlertDialogComponent, {
+         this.dialog.open(AlertDialogComponent, {
             width: '490px',
             panelClass: 'custom-container' 
           })
